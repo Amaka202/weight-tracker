@@ -11,7 +11,7 @@ const Results = () => {
   useEffect(() => {
     const unsubscribe = firestore
       .collection('measurements')
-      .where('person', '==', 'Amaka')
+      .where('person', '==', 'Nnenna')
       .orderBy('timestamp', 'desc')
       .onSnapshot((snapshot) => {
         const data = snapshot.docs.map((doc) => ({

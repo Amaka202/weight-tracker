@@ -34,7 +34,7 @@ const Navbar = () => {
             to="/result-nnenna"
             className="text-white hover:bg-blue-700 px-4 py-2 rounded-md mr-2"
           >
-            Nnnenna
+            Nnenna
           </Link>
           <Link
             to="/form"
