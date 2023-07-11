@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from './firebase';
+import logo from './Assets/logo.png'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,11 +17,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-500 p-4">
+    <nav className="bg-blue-950 p-7" >
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white font-bold text-lg">
+        <Link to="/" className="text-white font-bold text-2xl font-style: italic mr-0.5 "  >
           Weight Tracker
         </Link>
+        <img src= {logo} className='w-8 h-8 mr-auto' />
       {
         isAuthenticated &&
         <div>

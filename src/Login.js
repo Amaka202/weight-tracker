@@ -7,6 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [passwordShown, setPasswordShown] = useState(false)
     const navigate = useNavigate()
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,10 +24,13 @@ const Login = () => {
 
     setLoading(false);
   };
+  const togglePassword =()=>{
+    setPasswordShown(!passwordShown)
+  }
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="w-full max-w-sm bg-white rounded-lg shadow-md p-6" onSubmit={handleLogin}>
+      <form className="w-full max-w-sm bg-white rounded-xl shadow-md p-6" onSubmit={handleLogin}>
         <h2 className="text-2xl font-bold mb-4">Login</h2>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -36,7 +40,7 @@ const Login = () => {
             Email
           </label>
           <input
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
             type="email"
             id="email"
             value={email}
@@ -50,17 +54,22 @@ const Login = () => {
             Password
           </label>
           <input
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
-            type="password"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+            // type="password"
+           type={passwordShown ? "text" : "password"}
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button onClick={togglePassword} className='text-xs'>Show Password
+          { passwordShown==="password"? <i className="bi bi-eye-slash"></i> :<i className="bi bi-eye"></i> }
+          
+          </button>
         </div>
 
         <button
-          className="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          className="w-full px-4 py-2 text-white bg-blue-950 rounded-md hover:bg-blue-900"
           type="submit"
           disabled={loading}
         >
